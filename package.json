@@ -19,6 +19,9 @@
   "dependencies": {
     "azure": "^1.2.0-preview",
     "restify": "^4.3.0",
-    "restify-router": "^0.3.1"
+    "restify-router": "^0.3.1",
+    "dl-module": "git+https://github.com/danliris/dl-module.git#dev",
+    "module-toolkit": "git+https://github.com/pinkgorilla/module-toolkit.git",
+    
   }
 }
