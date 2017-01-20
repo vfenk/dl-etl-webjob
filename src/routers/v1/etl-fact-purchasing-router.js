@@ -2,7 +2,7 @@ var Router = require("restify-router").Router;
 var messageSender = require("../../message-sender");
 var FactPembelian = require('dl-module').etl.factPembelian;
 var db = require('../../db');
-
+var sql = require("../../sqlConnect");
 const apiVersion = "1.0.0";
 
 function getRouter() {
@@ -10,16 +10,19 @@ function getRouter() {
     var router = new Router();
 
     router.get("/", function (request, response, next) {
-        db.get().then((db) => {
-            var instance = new FactPembelian(db, {
-                username: "unit-test"
-            });
+        Promise.all([db.get(), Promise.resolve(sql)])
+            .then((results) => {
+                var db = results[0];
+                var sql = results[1];
+                var instance = new FactPembelian(db, {
+                    username: "unit-test"
+                }, sql);
 
-            instance.run()
-                .then(() => {
-                    response.send(200);
-                });
-        });
+                instance.run()
+                    .then(() => {
+                        response.send(200);
+                    });
+            });
 
         var message = {
             body: 'Test message',
