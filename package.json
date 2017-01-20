@@ -4,6 +4,7 @@
   "description": "Dan Liris ETL azure webjob",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -26,6 +27,5 @@
     "restify-router": "^0.3.1",
     "dl-module": "git+https://github.com/danliris/dl-module.git#dev",
     "module-toolkit": "git+https://github.com/pinkgorilla/module-toolkit.git"
-    
   }
 }
