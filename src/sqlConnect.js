@@ -1,3 +1,5 @@
+var sql = require("mssql");
+
 var config = {
     server: process.env.SQL_SERVER,
     database: process.env.SQL_DATABASE,
@@ -8,20 +10,14 @@ var config = {
     },
     connectionTimeout: 120 * 60 * 1000,
     requestTimeout: 1000000
-
 };
 
 module.exports = {
     getConnection: function () {
         return new Promise((resolve, reject) => {
-            var mssql = require("mssql");
-            mssql.connect(process.env.config)
-            .then((sql) => {
-                resolve(sql);
+            sql.connect(config, function (err) {
+                resolve(new sql.Request());
             })
-            .catch((e) => {
-                reject(e);
-            })
-        })
+        });
     }
 }
