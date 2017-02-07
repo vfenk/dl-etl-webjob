@@ -19,6 +19,10 @@
                 "AZURE_SERVICEBUS_DELAY": "10000",
                 "QUEUE_NAME": "demoqueue",
                 "NODE_ENV": "development",
+                "SQL_SERVER":"efrata.database.windows.net",
+                "SQL_DATABASE":"bateeq DWH",
+                "SQL_USERNAME":"Adminbateeq",
+                "SQL_PASSWORD":"Standar123.",
                 "DB_CONNECTIONSTRING": "mongodb://danliris:Standar123@sl-us-dal-9-portal.4.dblayer.com:17961,sl-us-dal-9-portal.2.dblayer.com:17961/danliris-prd?ssl=true"
             }
         },

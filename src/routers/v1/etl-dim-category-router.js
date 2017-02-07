@@ -1,6 +1,6 @@
 var Router = require("restify-router").Router;
 var messageSender = require("../../message-sender");
-var FactPembelian = require("dl-module").etl.factPembelian;
+var DimCategory = require("dl-module").etl.dimCategory;
 var dbConnect = require("../../db");
 var sqlConnect = require("../../sql-db");
 
@@ -32,7 +32,7 @@ function getRouter() {
                 var db = result[0];
                 var sql = result[1];
                 db.get().then((db) => {
-                    var instance = new FactPembelian(db, {
+                    var instance = new DimCategory(db, {
                         username: "unit-test"
                     }, sql);
 
