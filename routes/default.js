@@ -7,7 +7,6 @@ var etlDimUnitRouter = require('../src/routers/v1/etl-dim-unit-router');
 var etlFactMonitoringEvent = require('../src/routers/v1/etl-fact-monitoring-event-router');
 var etlFactSalesContract = require('../src/routers/v1/etl-fact-sales-contract-router');
 
-
 module.exports = function (server) {
     etlFactPuchasingRouter().applyRoutes(server, "/etl/purchasing");
     etlFactTotalHutangRouter().applyRoutes(server, "/etl/total-hutang");
