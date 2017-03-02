@@ -2,7 +2,7 @@ var Router = require("restify-router").Router;
 var messageSender = require("../../message-sender");
 var DimDivision = require("dl-module").etl.dimDivision;
 var dbConnect = require("../../db");
-var sqlConnect = require("../../sqlConnect");
+var sqlConnect = require("../../sql-db");
 
 const apiVersion = "1.0.0";
 

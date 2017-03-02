@@ -1,6 +1,6 @@
 var Router = require("restify-router").Router;
 var messageSender = require("../../message-sender");
-var DimUnit = require("dl-module").etl.dimUnit;
+var FactSalesContract = require("dl-module").etl.factSalesContract;
 var dbConnect = require("../../db");
 var sqlConnect = require("../../sql-db");
 
@@ -32,7 +32,7 @@ function getRouter() {
                 var db = result[0];
                 var sql = result[1];
                 db.get().then((db) => {
-                    var instance = new DimUnit(db, {
+                    var instance = new FactSalesContract(db, {
                         username: "unit-test"
                     }, sql);
 
