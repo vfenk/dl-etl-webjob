@@ -5,6 +5,7 @@ var DimDivision = require("dl-module").etl.dimDivision;
 var DimSupplier = require("dl-module").etl.dimSupplier;
 var DimCategory = require("dl-module").etl.dimCategory;
 var DimMachine = require("dl-module").etl.dimMachine;
+var DimBuyer = require("dl-module").etl.dimBuyer;
 var dbConnect = require("../../db");
 var sqlConnect = require("../../sql-db");
 
@@ -105,6 +106,22 @@ function getRouter() {
                     }, sql);
 
                     instance5.run()
+                        .catch((e) => {
+                            done(e);
+                        });
+                });
+            });
+
+        Promise.all([dbConnect, sqlConnect])
+            .then((result) => {
+                var db = result[0];
+                var sql = result[1];
+                db.get().then((db) => {
+                    var instance6 = new DimBuyer(db, {
+                        username: "unit-test"
+                    }, sql);
+
+                    instance6.run()
                         .catch((e) => {
                             done(e);
                         });
